@@ -1,0 +1,64 @@
+<html>
+   <head>
+      <title>VueJs Instance</title>
+      <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+      <style>
+         .green
+         {
+            color:green;
+         }
+         .blue
+         {
+            color:blue;
+         }
+         .demo1
+         {
+            height:100px;
+            width:100px;
+            background-color:yellow;
+            margin:10px;
+         }
+         .demo2
+         {
+            height:50px;
+            width:50px;
+            background-color:red;
+            margin:10px;
+         }
+      </style>
+
+   </head>
+   <body>
+      <div id="demo">
+
+         <h1 v-bind:style="{color:textColor, 'font-size':textSize}">Good Morning</h1>
+         <h2 v-bind:style='styleObject'>Vue Js</h2>
+
+         <p>{{ intro }}</p>
+         <h3 v-once>{{ intro }}</h3>
+         <p>{{ entry() }}</p>
+
+         <p><a v-bind:href='link'>Link</a></p>
+         <p v-html="complete_tag" ></p>
+
+         <button v-on:click="increment(2)">Increase</button>
+         <p>{{ count }}</p>
+
+         <button v-on:click="{avilable=!avilable}" v-bind:class='{green:avilable, blue:!avilable}'>Say Hii</button>
+
+         <div v-bind:class="{demo1:changeBox, demo2:!changeBox}"></div>
+         <button @click="{changeBox=!changeBox}">Change box</button>
+
+         <div v-show='show > 0'>I am visible for positive numbers only</div>
+         <div v-for='fruit,index in fruitBasket'>{{fruit}}({{index}})</div>
+         <ul>
+            <li v-for='market in fruitMarket'>
+               <span v-for='value in market'>{{value}}</span>
+            </li>
+         </ul>
+      </div>
+      
+
+      <script type = "text/javascript" src = "instances.js"></script>
+   </body>
+</html>
